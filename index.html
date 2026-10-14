@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#091529">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>P-LOG | 回転率管理</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon-180.png">
+<meta name="apple-mobile-web-app-title" content="P-LOG">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="description" content="パチンコ回転率を素早く記録する、シンプルな回転率管理アプリ">
+<style>
+:root{color-scheme:dark;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif;color:#f0f6ff;background:#07111f;font-synthesis:none;-webkit-tap-highlight-color:transparent}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100dvh;background:radial-gradient(ellipse at top,#102643 0%,#07111f 46%);font-size:16px}button,input{font:inherit}button{cursor:pointer;touch-action:manipulation}button:active{transform:scale(.985)}button:disabled{opacity:.45;cursor:not-allowed}.wrap{max-width:520px;margin:auto;padding:calc(16px + env(safe-area-inset-top)) 16px calc(125px + env(safe-area-inset-bottom))}.brand{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px}.logo{font-weight:900;letter-spacing:.025em;font-size:26px}.badge{background:#17374b;color:#82ebde;border:1px solid #265364;border-radius:99px;padding:7px 11px;font-size:11px;font-weight:850}h1{font-size:29px;letter-spacing:-.03em;margin:2px 0 9px}p.note{color:#b3c4da;font-size:13px;line-height:1.65;margin:0 0 20px}.card{border:1px solid #27405d;background:#13233a;border-radius:23px;padding:18px;margin:0 0 14px;box-shadow:0 12px 28px #00000025}label{display:block;color:#d1dff0;font-size:14px;font-weight:800;margin:0 0 9px}.field{margin-bottom:19px}input{display:block;width:100%;min-height:58px;border:1.5px solid #355373;border-radius:15px;padding:12px 16px;background:#0a192d;color:#fff;font-size:18px;outline:none}input:focus{border-color:#60dce8;box-shadow:0 0 0 4px #37ccdd24}input::placeholder{color:#829bb6}.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}.primary,.secondary,.danger{border:0;border-radius:16px;min-height:60px;font-weight:900;width:100%;padding:12px 16px;font-size:17px}.primary{background:linear-gradient(135deg,#6be4ee,#49b9f5);color:#05233c;box-shadow:0 7px 18px #32aacc2d}.secondary{background:#243955;color:#e8f4ff}.danger{background:#4a2836;color:#ffc5cb}.outline{border:1px solid #456786;background:#142a44;border-radius:11px;color:#dceeff;padding:10px 13px;font-size:13px;font-weight:750;min-height:42px}.hidden{display:none!important}.summary{background:linear-gradient(155deg,#17466a,#132b49 65%,#13263c);text-align:center;padding:25px 16px 19px;border-color:#32708a}.eyebrow{color:#c2deef;font-size:15px;font-weight:800;letter-spacing:.025em}.rate{font-size:clamp(62px,16vw,82px);font-weight:900;line-height:1.23;letter-spacing:-.055em;font-variant-numeric:tabular-nums;color:#ffffff;text-shadow:0 3px 12px #0003}.unit{font-size:14px;color:#b9d8ec;font-weight:700}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:24px}.stat{border-radius:14px;background:#ffffff12;padding:14px 4px}.stat small{display:block;color:#bfd7ee;font-size:11px;font-weight:700}.stat strong{font-size:19px;display:block;margin-top:5px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}.session{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px;color:#afc9e1;font-size:13px}.session strong{color:#fff;font-size:16px}.bigInput{font-size:38px;font-weight:850;text-align:center;letter-spacing:.035em;min-height:74px;font-variant-numeric:tabular-nums}.recordCard{border-color:#336685}.recordCard label{font-size:16px}.recordCard .note{margin:10px 0 14px!important}.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 0;border-bottom:1px solid #2b425d;font-size:15px;min-height:89px}.row:last-child{border:0}.row .muted{color:#adc3dc;font-size:12px;margin-top:7px}.row .right{font-weight:900;text-align:right;font-variant-numeric:tabular-nums;font-size:20px}.row .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}.row .actions button{min-height:40px;min-width:58px}.empty{color:#b4c8df;text-align:center;padding:27px 3px;font-size:14px}.error{color:#ffcaca;background:#5a2638;padding:12px;border-radius:10px;font-size:13px;margin-top:12px;line-height:1.5}.footer{color:#9bb3cc;font-size:12px;line-height:1.8;margin-top:20px}.titleRow{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}.titleRow h2{margin:0;font-size:18px}.presets{display:flex;gap:8px;margin-top:9px}.preset{border:1px solid #3b607b;background:#19324b;border-radius:11px;color:#d7e8f5;padding:10px 6px;min-height:44px;flex:1;font-size:14px;font-weight:850}.preset.active{background:#1d5865;border-color:#5ee2d9;color:#dcfffb}.sectionHint{margin-top:8px;color:#90a9bf;font-size:12px}.toast{position:fixed;z-index:10;bottom:calc(25px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:#256857;color:white;padding:13px 20px;border-radius:16px;font-weight:800;box-shadow:0 9px 25px #0007;white-space:nowrap;pointer-events:none}.toast.hidden{display:none!important}@media(max-width:370px){.stat strong{font-size:16px}.wrap{padding-left:12px;padding-right:12px}.card{padding:15px}.rate{font-size:59px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}button:active{transform:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="brand"><div class="logo">🎰 P-LOG</div><span class="badge">LEVEL 1</span></header>
+<section id="setupView">
+<h1>稼働設定</h1><p class="note">液晶の回転数を1,000円ごとに記録して、250玉あたりの回転率を計算します。</p>
+<form id="setupForm" class="card">
+<div class="field"><label for="shop">店舗名</label><input id="shop" autocomplete="off" placeholder="例：マルハン村松"></div>
+<div class="two"><div class="field"><label for="machine">機種名</label><input id="machine" autocomplete="off" placeholder="大海5SP"></div><div class="field"><label for="number">台番号</label><input id="number" inputmode="numeric" placeholder="301"></div></div>
+<div class="two"><div class="field"><label for="startG">打ち始め回転数</label><input id="startG" type="number" inputmode="numeric" min="0" max="9999999" step="1" required placeholder="100"></div><div class="field"><label for="balls">貸玉数 / 1,000円</label><input id="balls" type="number" inputmode="decimal" min="1" max="10000" step="any" required value="250"><div class="presets"><button type="button" class="preset active" data-balls="250">250玉</button><button type="button" class="preset" data-balls="228">228玉</button><button type="button" class="preset" data-balls="200">200玉</button></div></div></div>
+<button class="primary" type="submit">稼働スタート →</button><div id="setupError" class="error hidden" role="alert"></div>
+</form><p class="footer">250玉・228玉など自由に設定できます。交換率はこのLEVELでは計算に使用しません。</p>
+</section>
+<section id="mainView" class="hidden">
+<div class="session"><div><strong id="sessionName"></strong><br><span id="sessionInfo"></span></div><button id="backButton" type="button" class="outline">設定・終了</button></div>
+<div class="card summary"><div class="eyebrow">累計回転率</div><div class="rate" id="rate">--.--</div><div class="unit">回 / 250玉</div><div class="stats"><div class="stat"><small>総回転数</small><strong id="totalG">0</strong></div><div class="stat"><small>使用玉数</small><strong id="usedBalls">0</strong></div><div class="stat"><small>直近1,000円</small><strong id="lastG">—</strong></div></div></div>
+<div class="card recordCard"><form id="recordForm"><label for="currentG">液晶の現在回転数</label><input class="bigInput" id="currentG" type="number" inputmode="numeric" min="0" max="9999999" step="1" placeholder="例：119" enterkeyhint="done" required><p class="note" style="margin:8px 0 14px">記録するたびに1,000円（設定した貸玉数）を加算します。</p><button class="primary" type="submit" id="recordButton">＋ 記録する</button><div id="recordError" class="error hidden" role="alert"></div><div class="sectionHint">入力後「記録する」をタップ。1回につき1,000円分として集計します。</div></form></div>
+<div class="card"><div class="titleRow"><h2>記録履歴</h2><span id="recordCount" class="badge">0 件</span></div><div id="history" aria-live="polite"></div></div>
+<p class="footer">計算： (最新の液晶回転数 − 打ち始め回転数) ÷ 累計使用玉数 × 250。小数第3位以下切り捨て。<br>※ 大当たりによる液晶回転数のリセット、持ち玉使用、上皿残玉の調整はLEVEL 2以降に対応予定です。回転数がリセットされた場合は記録を続けないでください。<br>※ データはこのブラウザ内に保存しますが、Safariのデータ削除等で消える場合があります。</p>
+</section>
+</main>
+<div class="toast hidden" id="toast" role="status" aria-live="polite">✓ 記録しました</div>
+<script>
+(()=>{
+'use strict';
+const KEY='plog-level1-v1';
+const $=id=>document.getElementById(id);
+const fresh=()=>({shop:'',machine:'',number:'',startG:0,balls:250,records:[]});
+let data=null;
+try{const raw=localStorage.getItem(KEY);if(raw){const obj=JSON.parse(raw);if(obj&&Number.isInteger(obj.startG)&&Number.isFinite(obj.balls)&&obj.balls>0&&Array.isArray(obj.records)&&obj.records.every(x=>Number.isInteger(x)&&x>=0)){data=obj;}}}catch(e){console.warn('保存データを読み込めませんでした',e)}
+let toastTimer;function notify(){const t=$('toast');t.classList.remove('hidden');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.add('hidden'),1400)}
+function presetUpdate(){document.querySelectorAll('.preset').forEach(b=>b.classList.toggle('active',Number(b.dataset.balls)===Number($('balls').value)))}
+document.querySelectorAll('.preset').forEach(b=>b.addEventListener('click',()=>{$('balls').value=b.dataset.balls;presetUpdate()}));$('balls').addEventListener('input',presetUpdate);
+const fmt=n=>Number(n).toLocaleString('ja-JP');
+const trunc2=n=>Math.floor((n+Number.EPSILON)*100)/100;
+const fixed=n=>trunc2(n).toFixed(2);
+function save(){try{localStorage.setItem(KEY,JSON.stringify(data));return true}catch(e){alert('保存に失敗しました。Safariのストレージ設定をご確認ください。');return false}}
+function error(id,msg){$(id).textContent=msg;$(id).classList.toggle('hidden',!msg)}
+function show(){const active=!!data;$('setupView').classList.toggle('hidden',active);$('mainView').classList.toggle('hidden',!active);if(active)render()}
+function render(){const list=data.records;const count=list.length;const prev=count>1?list[count-2]:data.startG;const latest=count?list[count-1]:data.startG;const total=latest-data.startG;const used=count*data.balls;const rate=count?fixed(total/used*250):'--.--';$('sessionName').textContent=[data.machine||'機種未設定',data.number?data.number+'番台':''].filter(Boolean).join(' / ');$('sessionInfo').textContent=[data.shop||'店舗未設定',`${fmt(data.balls)}玉貸し`].join(' · ');$('rate').textContent=rate;$('totalG').textContent=fmt(total);$('usedBalls').textContent=fmt(used);$('lastG').textContent=count?`${fmt(latest-prev)}回`:'—';$('recordCount').textContent=`${count} 件`;
+const history=$('history');history.replaceChildren();if(!count){const p=document.createElement('div');p.className='empty';p.textContent='まだ記録がありません';history.append(p);return;}
+for(let i=count-1;i>=0;i--){const g=list[i],past=i?list[i-1]:data.startG, usedNow=(i+1)*data.balls;const row=document.createElement('div');row.className='row';const left=document.createElement('div');const a=document.createElement('strong');a.textContent=`${fmt((i+1)*1000)}円相当`;const b=document.createElement('div');b.className='muted';b.textContent=`液晶 ${fmt(g)}G · 直近 +${fmt(g-past)}回`;left.append(a,b);const right=document.createElement('div');right.className='right';const value=document.createElement('div');value.textContent=fixed((g-data.startG)/usedNow*250);const actions=document.createElement('div');actions.className='actions';const edit=document.createElement('button');edit.className='outline';edit.textContent='修正';edit.type='button';edit.addEventListener('click',()=>editRecord(i));const del=document.createElement('button');del.className='outline';del.textContent='削除';del.type='button';del.addEventListener('click',()=>deleteRecord(i));actions.append(edit,del);right.append(value,actions);row.append(left,right);history.append(row)} }
+function editRecord(i){const input=prompt(`${i+1}件目の液晶回転数を修正`,data.records[i]);if(input===null)return;const n=Number(input.trim());if(!input.trim()||!Number.isInteger(n)||n<0||n>9999999){alert('0以上の整数を入力してください。');return}const lower=i===0?data.startG:data.records[i-1];const upper=i===data.records.length-1?Infinity:data.records[i+1];if(n<lower||n>upper){alert(`前後の記録と矛盾しています（${fmt(lower)}〜${upper===Infinity?'上限なし':fmt(upper)}）。`);return}data.records[i]=n;save();render()}
+function deleteRecord(i){if(!confirm(`${i+1}件目の記録を削除しますか？\n以降の記録の「投資額」と回転率も再計算します。`))return;data.records.splice(i,1);save();render()}
+$('setupForm').addEventListener('submit',e=>{e.preventDefault();const start=Number($('startG').value),balls=Number($('balls').value);if(!Number.isInteger(start)||start<0||start>9999999||!Number.isFinite(balls)||balls<=0||balls>10000){error('setupError','開始回転数は0以上の整数、貸玉数は0より大きい数値で入力してください。');return}error('setupError','');data={shop:$('shop').value.trim(),machine:$('machine').value.trim(),number:$('number').value.trim(),startG:start,balls,records:[]};save();show()});
+$('recordForm').addEventListener('submit',e=>{e.preventDefault();const str=$('currentG').value.trim(),n=Number(str),min=data.records.length?data.records[data.records.length-1]:data.startG;if(!str||!Number.isInteger(n)||n<min||n>9999999){error('recordError',`液晶回転数は前回の${fmt(min)}G以上の整数で入力してください。大当たりなどで液晶がリセットされた場合、このLEVELでは記録できません。`);return}error('recordError','');data.records.push(n);save();$('currentG').value='';render();$('currentG').focus({preventScroll:true});notify()});
+$('backButton').addEventListener('click',()=>{if(!confirm('現在の稼働を終了して、新しい稼働を始めますか？\n現在の記録はこのアプリから消えます。必要なら先に画面を控えてください。'))return;data=null;try{localStorage.removeItem(KEY)}catch(e){}$('setupForm').reset();$('balls').value='250';presetUpdate();show()});
+show();
+})();
+</script>
+<script>
+if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+}
+</script>
+</body>
+</html>
